@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css" />
+  </head>
+
+  <body>
+
+<div class="layout">
+
+<div class="sidebar">
+
+<h2 class="logo">AI Student Mentor</h2>
+
+<ul class="menu">
+
+<li onclick="window.location.href='dashboard.html'">Dashboard</li>
+
+<li onclick="window.location.href='projects.html'">
+Project Guidance
+</li>
+
+<li onclick="window.location.href='internships.html'">
+Internships
+</li>
+
+<li onclick="window.location.href='mockinterviews.html'">
+Mock Interview
+</li>
+
+<li onclick="window.location.href='viewProfile.html'">
+Profile
+</li>
+
+</ul>
+
+<div class="signout" onclick="logout()">Sign Out</div>
+
+</div>
+
+ <div class="main">
+        <div class="topbar">
+          <div class="search-box">
+            <input
+              type="text"
+              placeholder="Search courses, projects, or skills..."
+            />
+          </div>
+
+          <div
+            class="profile-section"
+            onclick="window.location.href = 'viewProfile.html'"
+          >
+            <div class="profile-info">
+              <div id="profileName"></div>
+
+              <div id="profileBranch"></div>
+            </div>
+
+            <div class="avatar" id="avatar"></div>
+          </div>
+        </div>
+
+        <div class="welcome">
+          <h1>Welcome <span id="welcomeName"></span> 👋</h1>
+
+          <p>Your AI mentor will guide your career journey.</p>
+        </div>
+
+        <!-- TOP GRID -->
+
+        <div class="grid">
+          <!-- GOAL + READINESS -->
+
+          <div class="card">
+            <div class="goal-readiness">
+              <div class="goal-section">
+                <h3>Career Goal</h3>
+
+                <h2 id="goal"></h2>
+              </div>
+
+              <div class="readiness-section">
+                <h3>Career Readiness</h3>
+
+                <div class="progress-bar">
+                  <div id="progress"></div>
+                </div>
+
+                <p id="scoreText"></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- SKILLS -->
+
+          <div class="card">
+            <h3>Your Skills</h3>
+
+            <div id="skills" class="skills"></div>
+          </div>
+        </div>
+
+        <!-- RECOMMENDATIONS -->
+
+        <div class="recommendations">
+          <div class="card">
+            <div class="projects-section">
+              <h3>Recommended Projects</h3>
+
+              <div id="projectList" class="project-container"></div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="learning-section">
+              <div class="section-header">
+                <h3>Learning Recommendations</h3>
+
+                <a href="#">View All</a>
+              </div>
+
+              <div id="learningList"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="projectList" class="project-container"></div>
+    <script src="dashboard.js"></script>
+
+</div>
+
+</body>
+</html>
