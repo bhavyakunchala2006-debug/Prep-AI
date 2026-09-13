@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Internship Opportunities - PrepAI</title>
+<link rel="stylesheet" href="internships.css">
+<style>
+  .sample-tag {
+    display: inline-block;
+    background: #fffaf0;
+    border: 1px solid #feebc8;
+    color: #dd6b20;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 6px;
+    margin-left: 8px;
+  }
+  .filter-select {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 13px;
+    background: white;
+    cursor: pointer;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+  <h2 class="logo">AI Student Mentor</h2>
+
+  <ul class="menu">
+    <li onclick="window.location.href='dashboard.html'">Dashboard</li>
+    <li onclick="window.location.href='projects.html'">Project Guidance</li>
+    <li class="active" onclick="window.location.href='internships.html'">Internships</li>
+    <li onclick="window.location.href='mockinterviews.html'">Mock Interview</li>
+    <li onclick="window.location.href='viewProfile.html'">Profile</li>
+  </ul>
+
+  <div class="signout" onclick="logout()">Sign Out</div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main">
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <input type="text" id="searchInput" placeholder="Search internships by role, company, or skill..." oninput="applyFilterAndSort()">
+  </div>
+
+  <!-- TITLE -->
+  <div class="header" style="flex-wrap:wrap; gap:16px;">
+    <div>
+      <h1 style="display:flex; align-items:center;">
+        Internship Opportunities
+        <span class="sample-tag">Sample Practice Opportunities</span>
+      </h1>
+      <p id="internshipSubtitle" style="margin-top:6px; color:#666;">
+        Curated roles based on your profile skills and career goals.
+      </p>
+    </div>
+
+    <div class="controls" style="display:flex; gap:10px; align-items:center;">
+      <select id="locationFilter" class="filter-select" onchange="applyFilterAndSort()">
+        <option value="ALL">All India Locations</option>
+        <option value="Bengaluru">Bengaluru</option>
+        <option value="Hyderabad">Hyderabad</option>
+        <option value="Pune">Pune</option>
+        <option value="Chennai">Chennai</option>
+        <option value="Mumbai">Mumbai</option>
+        <option value="NCR">Delhi / NCR</option>
+        <option value="Remote">Remote — India</option>
+      </select>
+
+      <select id="sortSelect" class="filter-select" onchange="applyFilterAndSort()">
+        <option value="MATCH_DESC">Sort: Match % (High to Low)</option>
+        <option value="MATCH_ASC">Sort: Match % (Low to High)</option>
+        <option value="TITLE_ASC">Sort: Title (A-Z)</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- CARDS GRID -->
+  <div class="grid" id="internshipGrid"></div>
+
+</div>
+</div>
+
+<script src="recommendations.js"></script>
+<script src="internships.js"></script>
+
+</body>
+</html>

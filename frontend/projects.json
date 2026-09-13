@@ -1,0 +1,54 @@
+[
+{"title":"Number Guessing Game","skills":["python"],"level":"Beginner"},
+{"title":"Password Generator","skills":["python"],"level":"Beginner"},
+{"title":"Web Scraper","skills":["python"],"level":"Intermediate"},
+{"title":"Spam Email Classifier","skills":["python","machine learning"],"level":"Intermediate"},
+{"title":"Movie Recommendation System","skills":["python","machine learning"],"level":"Advanced"},
+
+{"title":"Bank Management System","skills":["java"],"level":"Beginner"},
+{"title":"Library Management System","skills":["java","sql"],"level":"Intermediate"},
+{"title":"Online Quiz Application","skills":["java"],"level":"Intermediate"},
+{"title":"Chat Application using Java Sockets","skills":["java"],"level":"Advanced"},
+{"title":"Inventory Management System","skills":["java","sql"],"level":"Intermediate"},
+
+{"title":"Student Database System","skills":["sql"],"level":"Beginner"},
+{"title":"Hospital Management Database","skills":["sql"],"level":"Intermediate"},
+{"title":"Employee Record System","skills":["sql"],"level":"Beginner"},
+{"title":"E-commerce Database Design","skills":["sql"],"level":"Advanced"},
+
+{"title":"Portfolio Website","skills":["html","css"],"level":"Beginner"},
+{"title":"Landing Page Design","skills":["html","css"],"level":"Beginner"},
+{"title":"Blog Website","skills":["html","css","javascript"],"level":"Intermediate"},
+{"title":"Weather App","skills":["javascript"],"level":"Intermediate"},
+{"title":"Task Manager App","skills":["javascript"],"level":"Intermediate"},
+
+{"title":"React Todo App","skills":["react"],"level":"Beginner"},
+{"title":"React Portfolio Website","skills":["react"],"level":"Intermediate"},
+{"title":"React Chat Application","skills":["react"],"level":"Advanced"},
+{"title":"React Dashboard UI","skills":["react"],"level":"Intermediate"},
+
+{"title":"Sorting Algorithm Visualizer","skills":["dsa"],"level":"Intermediate"},
+{"title":"Pathfinding Visualizer","skills":["dsa"],"level":"Advanced"},
+{"title":"Graph Algorithm Simulator","skills":["dsa"],"level":"Advanced"},
+{"title":"Binary Search Tree Visualizer","skills":["dsa"],"level":"Intermediate"},
+
+{"title":"Machine Learning House Price Predictor","skills":["machine learning","python"],"level":"Intermediate"},
+{"title":"Image Classification Model","skills":["machine learning","python"],"level":"Advanced"},
+{"title":"Sentiment Analysis Tool","skills":["machine learning","python"],"level":"Intermediate"},
+
+{"title":"REST API with Node.js","skills":["node"],"level":"Intermediate"},
+{"title":"Real-Time Chat App","skills":["node","javascript"],"level":"Advanced"},
+{"title":"URL Shortener","skills":["node"],"level":"Intermediate"},
+
+{"title":"Cloud File Storage System","skills":["cloud"],"level":"Advanced"},
+{"title":"Server Monitoring Dashboard","skills":["cloud"],"level":"Intermediate"},
+
+{"title":"Cybersecurity Password Cracker Simulator","skills":["cybersecurity"],"level":"Advanced"},
+{"title":"Network Packet Analyzer","skills":["cybersecurity"],"level":"Advanced"},
+
+{"title":"Android Notes App","skills":["android","java"],"level":"Beginner"},
+{"title":"Android Expense Tracker","skills":["android","java"],"level":"Intermediate"},
+
+{"title":"Data Visualization Dashboard","skills":["python","data science"],"level":"Intermediate"},
+{"title":"Stock Price Predictor","skills":["python","machine learning"],"level":"Advanced"}
+]

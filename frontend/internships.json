@@ -1,0 +1,102 @@
+[
+  {
+    "id": "int_01",
+    "title": "Machine Learning Engineer Intern",
+    "company": "TechNova AI India",
+    "location": "Bengaluru, Karnataka (Hybrid)",
+    "stipend": "₹35,000 - ₹50,000 / mo",
+    "type": "Summer 2024",
+    "requiredSkills": ["Python", "Machine Learning", "SQL", "Scikit-learn"],
+    "category": "AI / ML"
+  },
+  {
+    "id": "int_02",
+    "title": "Data Science Intern",
+    "company": "Quant Analytics India",
+    "location": "Hyderabad, Telangana",
+    "stipend": "₹30,000 / mo",
+    "type": "Fall 2024",
+    "requiredSkills": ["Python", "Pandas", "SQL", "Data Science"],
+    "category": "Data Science"
+  },
+  {
+    "id": "int_03",
+    "title": "Full Stack Developer Intern",
+    "company": "WebSphere Solutions",
+    "location": "Pune, Maharashtra",
+    "stipend": "₹25,000 - ₹35,000 / mo",
+    "type": "Immediate",
+    "requiredSkills": ["JavaScript", "HTML", "CSS", "React", "Node.js"],
+    "category": "Full Stack"
+  },
+  {
+    "id": "int_04",
+    "title": "Frontend Developer Intern",
+    "company": "DesignUI Tech",
+    "location": "Remote — India",
+    "stipend": "₹20,000 / mo",
+    "type": "6 Months",
+    "requiredSkills": ["HTML", "CSS", "JavaScript", "React"],
+    "category": "Frontend"
+  },
+  {
+    "id": "int_05",
+    "title": "Backend Developer Intern",
+    "company": "CloudScale Systems",
+    "location": "Bengaluru, Karnataka",
+    "stipend": "₹30,000 / mo",
+    "type": "Immediate",
+    "requiredSkills": ["Java", "SQL", "Node.js", "Express"],
+    "category": "Backend"
+  },
+  {
+    "id": "int_06",
+    "title": "Java Software Engineer Intern",
+    "company": "Enterprise Java India",
+    "location": "Chennai, Tamil Nadu",
+    "stipend": "₹28,000 / mo",
+    "type": "Summer 2024",
+    "requiredSkills": ["Java", "SQL", "DSA"],
+    "category": "Software Engineering"
+  },
+  {
+    "id": "int_07",
+    "title": "Android Developer Intern",
+    "company": "Mobility Apps Corp",
+    "location": "Gurugram, Haryana (NCR)",
+    "stipend": "₹25,000 / mo",
+    "type": "Immediate",
+    "requiredSkills": ["Android", "Java", "SQL"],
+    "category": "Mobile"
+  },
+  {
+    "id": "int_08",
+    "title": "Cybersecurity Analyst Intern",
+    "company": "SecureNet India",
+    "location": "Noida, Uttar Pradesh",
+    "stipend": "₹32,000 / mo",
+    "type": "Fall 2024",
+    "requiredSkills": ["Cybersecurity", "Python", "Cloud"],
+    "category": "Security"
+  },
+  {
+    "id": "int_09",
+    "title": "Cloud DevOps Intern",
+    "company": "InfraCloud Labs",
+    "location": "Mumbai, Maharashtra",
+    "stipend": "₹35,000 / mo",
+    "type": "Immediate",
+    "requiredSkills": ["Cloud", "Python", "Git"],
+    "category": "Cloud"
+  },
+  {
+    "id": "int_10",
+    "title": "Python Developer Intern",
+    "company": "PyData Labs",
+    "location": "Visakhapatnam, Andhra Pradesh",
+    "stipend": "₹22,000 / mo",
+    "type": "Remote — India",
+    "requiredSkills": ["Python", "SQL", "Git"],
+    "category": "Backend"
+  }
+]

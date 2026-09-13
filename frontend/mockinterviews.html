@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Video Mock Interview - PrepAI</title>
+<link rel="stylesheet" href="mockinterviews.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+  <h2 class="logo">AI Student Mentor</h2>
+
+  <ul class="menu">
+    <li onclick="window.location.href='dashboard.html'">Dashboard</li>
+    <li onclick="window.location.href='projects.html'">Project Guidance</li>
+    <li onclick="window.location.href='internships.html'">Internships</li>
+    <li class="active" onclick="window.location.href='mockinterviews.html'">Mock Interview</li>
+    <li onclick="window.location.href='viewProfile.html'">Profile</li>
+  </ul>
+
+  <div class="signout" onclick="logout()">Sign Out</div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main">
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <input class="search" placeholder="Search courses, projects, or skills...">
+
+    <div class="profile-section" onclick="window.location.href = 'viewProfile.html'">
+      <div class="profile-info">
+        <div id="profileName">Student</div>
+        <div id="profileBranch">Computer Science</div>
+      </div>
+      <div class="avatar" id="avatar">S</div>
+    </div>
+  </div>
+
+  <!-- NOTIFICATION / ERROR BANNER -->
+  <div id="notificationBanner" class="hidden" style="max-width:800px; margin:0 auto 20px auto; padding:14px 20px; border-radius:10px; background:#fff5f5; border:1px solid #feb2b2; color:#c53030; font-size:14px; display:flex; justify-content:space-between; align-items:center;">
+    <span id="notificationMsg">Error notification message</span>
+    <button onclick="hideNotification()" style="background:none; border:none; color:#c53030; font-size:18px; cursor:pointer;">✕</button>
+  </div>
+
+  <!-- PHASE 1: INTERVIEW SETUP SECTION -->
+  <div id="setupSection">
+    <div class="header">
+      <div class="bot">🤖</div>
+      <h1>AI Video Mock Interview</h1>
+      <p>
+        Our AI will analyze your resume and the target job description to generate
+        personalized, realistic interview questions and evaluate your responses in real time.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Interview Setup</h3>
+      <p class="desc">Provide details about the role you are targeting.</p>
+
+      <label for="resume">Upload Resume (PDF / DOCX)</label>
+      <div class="upload" id="uploadArea">
+        <div class="upload-icon">☁️</div>
+        <p id="uploadText">Click to upload or drag and drop</p>
+        <span>PDF, DOCX up to 5MB</span>
+        <input type="file" id="resume" accept=".pdf,.docx,.doc,.txt" hidden>
+      </div>
+
+      <label for="role">Target Job Role</label>
+      <input id="role" placeholder="e.g., Junior Machine Learning Engineer">
+
+      <label for="desc">Job Description (Paste text - Optional)</label>
+      <textarea id="desc" placeholder="Paste the requirements and responsibilities from the job posting..."></textarea>
+
+      <button class="generate" id="generateBtn" onclick="handleGenerateInterview()">
+        Generate Interview Session
+      </button>
+
+      <!-- Loading State Overlay -->
+      <div id="setupLoading" class="loading-overlay hidden">
+        <div class="spinner"></div>
+        <h4 id="setupLoadingText">Analyzing resume & generating interview questions...</h4>
+        <p style="font-size:13px; color:#777; margin-top:6px;">This may take a few seconds.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 2: INTERVIEW LOBBY SECTION -->
+  <div id="lobbySection" class="hidden">
+    <div class="lobby-container">
+      <div style="text-align:center; margin-bottom: 20px;">
+        <h2>Interview Preparation Lobby 🎥</h2>
+        <p style="color:#666; font-size:14px; margin-top:4px;">Verify your camera and microphone before starting the interview.</p>
+      </div>
+
+      <div class="lobby-grid">
+        <!-- Video Preview -->
+        <div>
+          <div class="video-preview-box">
+            <video id="previewVideo" autoplay playsinline muted></video>
+            <div id="previewPlaceholder" class="camera-placeholder">
+              <div style="font-size:36px; margin-bottom:8px;">📷</div>
+              <p>Camera is currently off</p>
+            </div>
+          </div>
+
+          <div class="permission-badges">
+            <div id="camBadge" class="badge">
+              <span>📷</span> Camera: Off
+            </div>
+            <div id="micBadge" class="badge">
+              <span>🎙️</span> Microphone: Off
+            </div>
+          </div>
+        </div>
+
+        <!-- Session Overview Info -->
+        <div class="session-info-box">
+          <h3 style="font-size:16px; margin-bottom:6px;">Session Overview</h3>
+          <div class="info-item">
+            <span>Target Role:</span>
+            <span id="lobbyRole">Software Engineer</span>
+          </div>
+          <div class="info-item">
+            <span>Questions:</span>
+            <span id="lobbyQuestionCount">5 Structured Questions</span>
+          </div>
+          <div class="info-item">
+            <span>Estimated Duration:</span>
+            <span>~10 minutes</span>
+          </div>
+          <div class="info-item">
+            <span>Resume Status:</span>
+            <span id="lobbyResumeStatus">Analyzed ✓</span>
+          </div>
+
+          <div style="margin-top:auto;">
+            <button class="btn-secondary" style="width:100%; margin-bottom:10px;" onclick="enableMediaDevices()">
+              Test Camera & Microphone
+            </button>
+            <button class="btn-primary" style="margin-top:0;" onclick="startInterviewSession()">
+              Start AI Interview Session ▶
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 3: LIVE VIDEO INTERVIEW SECTION -->
+  <div id="interviewSection" class="hidden">
+    <div class="interview-container">
+
+      <!-- Header Bar -->
+      <div class="interview-header-bar">
+        <div>
+          <span style="font-size:12px; color:#888; text-transform:uppercase;">Role</span>
+          <div id="interviewHeaderRole" style="font-weight:bold; color:#333;">Software Engineer</div>
+        </div>
+        <div class="question-progress" id="questionProgressText">Question 1 of 5</div>
+        <div class="timer-badge">
+          <span>⏱️</span> <span id="timerDisplay">00:00</span>
+        </div>
+      </div>
+
+      <!-- Main Video Grid -->
+      <div class="interview-grid">
+
+        <!-- Left: AI Interviewer -->
+        <div class="ai-box">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <span style="font-weight:bold; font-size:14px; color:#c7d2fe;">AI INTERVIEWER</span>
+            <div class="ai-speaking-label">
+              <span id="aiStatusDot" class="pulse-dot"></span>
+              <span id="aiStatusText">AI Ready</span>
+            </div>
+          </div>
+
+          <div class="avatar-visualizer">
+            <div id="aiAvatarCircle" class="ai-avatar-circle">
+              🤖
+            </div>
+          </div>
+
+          <!-- Question Prompt Display -->
+          <div class="question-box">
+            <span id="questionTypeBadge" class="question-type-badge">Technical</span>
+            <div id="currentQuestionText" class="question-text">
+              Loading your first interview question...
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Candidate Live Video Feed -->
+        <div class="candidate-box">
+          <div class="recording-indicator" id="recordingIndicator" style="display:none;">
+            <span class="recording-dot"></span> Recording Answer
+          </div>
+
+          <video id="candidateVideo" autoplay playsinline muted></video>
+
+          <div class="transcript-overlay">
+            <div style="font-size:11px; color:#aaa; margin-bottom:4px; text-transform:uppercase; font-weight:bold;">Real-Time Speech Transcript</div>
+            <div id="liveTranscript">Say something or click "Start Answer" to record your response...</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Control Bar -->
+      <div class="controls-bar">
+        <div class="media-btns">
+          <button id="toggleMicBtn" class="ctrl-btn" title="Toggle Microphone" onclick="toggleMicrophone()">🎙️</button>
+          <button id="toggleCamBtn" class="ctrl-btn" title="Toggle Camera" onclick="toggleCamera()">📷</button>
+        </div>
+
+        <div class="action-btn-group">
+          <button id="answerBtn" class="answer-btn" onclick="toggleAnswerRecording()">
+            <span>🎙️</span> <span id="answerBtnText">Start Answer</span>
+          </button>
+          <button class="btn-secondary" style="border-color:#feb2b2; color:#e53e3e;" onclick="endInterviewEarly()">
+            End Interview
+          </button>
+        </div>
+      </div>
+
+      <!-- Text Answer Fallback Container -->
+      <div id="manualTextFallback" class="manual-text-container hidden">
+        <label for="manualAnswerInput" style="margin-top:0;">Alternative Text Answer Input (Use if mic is quiet or unsupported)</label>
+        <textarea id="manualAnswerInput" placeholder="Type your answer here if speech recognition is unavailable..."></textarea>
+        <button class="btn-primary" style="width:auto; margin-top:10px; padding:8px 20px;" onclick="submitTextAnswerDirect()">Submit Typed Answer</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PHASE 4: FINAL INTERVIEW RESULTS SECTION -->
+  <div id="resultsSection" class="hidden">
+    <div class="results-container">
+
+      <!-- Header Card with Overall Gauge -->
+      <div class="results-header-card">
+        <h2 style="color:#2d3748; font-size:24px;">Interview Completed 🎉</h2>
+        <p style="color:#718096; font-size:14px; margin-top:4px;">Here is your personalized AI evaluation and feedback report.</p>
+
+        <div class="score-circle-container" id="scoreCircle">
+          <div class="score-inner">
+            <div class="score-number" id="resOverallScore">78</div>
+            <div class="score-label">Overall Score</div>
+          </div>
+        </div>
+
+        <p id="resSummaryText" style="max-width:650px; margin:0 auto; color:#4a5568; font-size:15px; line-height:1.5;">
+          You performed well in technical fundamentals. Keep practicing system design and structured responses.
+        </p>
+      </div>
+
+      <!-- Metrics Breakdown Grid -->
+      <div class="metrics-grid">
+        <div class="metric-card" style="border-top-color:#6a5af9;">
+          <div class="metric-name">Technical</div>
+          <div class="metric-score" id="resTechScore">80</div>
+        </div>
+        <div class="metric-card" style="border-top-color:#48bb78;">
+          <div class="metric-name">Communication</div>
+          <div class="metric-score" id="resCommScore">85</div>
+        </div>
+        <div class="metric-card" style="border-top-color:#4299e1;">
+          <div class="metric-name">Problem Solving</div>
+          <div class="metric-score" id="resProbScore">75</div>
+        </div>
+        <div class="metric-card" style="border-top-color:#ed8936;">
+          <div class="metric-name">Relevance</div>
+          <div class="metric-score" id="resRelScore">82</div>
+        </div>
+        <div class="metric-card" style="border-top-color:#9f7aea;">
+          <div class="metric-name">Delivery</div>
+          <div class="metric-score" id="resConfScore">78</div>
+        </div>
+      </div>
+
+      <!-- Detailed Strengths & Weaknesses -->
+      <div class="feedback-grid">
+        <div class="feedback-card">
+          <h3 style="color:#276749;">💪 Strengths</h3>
+          <ul id="resStrengthsList" class="feedback-list">
+            <li>Strong technical explanations</li>
+          </ul>
+        </div>
+
+        <div class="feedback-card">
+          <h3 style="color:#c53030;">🎯 Areas to Improve</h3>
+          <ul id="resWeaknessesList" class="feedback-list">
+            <li>Elaborate more on production monitoring and edge cases</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Recommendations & Learning -->
+      <div class="feedback-card">
+        <h3>💡 Actionable AI Recommendations</h3>
+        <ul id="resRecommendationsList" class="feedback-list">
+          <li>Practice structured STAR methodology for behavioral questions</li>
+        </ul>
+
+        <h4 style="font-size:14px; margin-top:16px; margin-bottom:8px; color:#4a5568;">Recommended Learning Topics:</h4>
+        <div id="resTopicsCloud" class="tag-cloud">
+          <span class="rec-tag">System Design</span>
+        </div>
+      </div>
+
+      <!-- Navigation & Action Buttons -->
+      <div class="results-actions">
+        <button class="btn-secondary" onclick="resetInterviewSession()">Retry Interview</button>
+        <button class="btn-primary" style="width:auto; padding:12px 28px;" onclick="window.location.href='dashboard.html'">Back to Dashboard</button>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+</div>
+
+<script src="mockinterviews.js"></script>
+
+</body>
+</html>

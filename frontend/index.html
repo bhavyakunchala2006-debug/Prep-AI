@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>AI Student Career Mentor</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>AI Student Career Mentor</h1>
+      <p class="subtitle">Your personalized path to a tech career.</p>
+
+      <div class="tabs">
+        <button class="tab-btn active" onclick="showForm('login', this)">
+          Login
+        </button>
+
+        <button class="tab-btn" onclick="showForm('signup', this)">
+          Sign Up
+        </button>
+      </div>
+
+      <!-- LOGIN -->
+
+      <div id="login" class="form-section active">
+        <label>Email</label>
+        <input
+          id="loginEmail"
+          type="email"
+          placeholder="student@university.edu.in"
+        />
+
+        <label>Password</label>
+        <input
+          id="loginPassword"
+          type="password"
+          placeholder="Enter password"
+        />
+
+        <button class="primary-btn" onclick="loginUser()">Login</button>
+      </div>
+
+      <!-- SIGNUP -->
+
+      <div id="signup" class="form-section">
+        <label>Full Name</label>
+        <input id="signupName" type="text" placeholder="Alex Student" />
+
+        <label>Email</label>
+        <input
+          id="signupEmail"
+          type="email"
+          placeholder="student@university.edu.in"
+        />
+
+        <label>Password</label>
+        <input
+          id="signupPassword"
+          type="password"
+          placeholder="Create password"
+        />
+
+        <button class="primary-btn" onclick="createAccount()">
+          Create Account
+        </button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
