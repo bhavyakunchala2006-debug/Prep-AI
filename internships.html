@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Internships</title>
+<link rel="stylesheet" href="internships.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+
+<h2 class="logo">AI Student Mentor</h2>
+
+<ul class="menu">
+
+<li onclick="window.location.href='dashboard.html'">Dashboard</li>
+
+<li onclick="window.location.href='projects.html'">
+Project Guidance
+</li>
+
+<li onclick="window.location.href='internships.html'">
+Internships
+</li>
+
+<li onclick="window.location.href='mockinterviews.html'">
+Mock Interview
+</li>
+
+<li onclick="window.location.href='viewProfile.html'">
+Profile
+</li>
+
+</ul>
+
+<div class="signout" onclick="logout()">Sign Out</div>
+
+</div>
+
+
+<!-- MAIN CONTENT -->
+<div class="main">
+
+<!-- TOP BAR -->
+<div class="topbar">
+
+<input type="text" placeholder="Search courses, projects, or skills...">
+
+<!-- <div class="profile">
+<img src="https://i.pravatar.cc/40" alt="User Avatar" width="40" height="40">
+<div>
+<p>Alex Student</p>
+<span>Computer Science</span>
+</div>
+</div> -->
+
+</div>
+
+
+<!-- TITLE -->
+<div class="header">
+
+<div>
+<h1>Internship Opportunities</h1>
+<p>Curated roles based on your React, Node.js, and Python skills.</p>
+</div>
+
+<div class="controls">
+<button>Filter</button>
+<button>Sort: Match %</button>
+</div>
+
+</div>
+
+
+<!-- CARDS GRID -->
+<div class="grid">
+
+<!-- CARD 1 -->
+<div class="card">
+
+<div class="card-header">
+<h3>Machine Learning Intern</h3>
+<span class="match">92% Match</span>
+</div>
+
+<p class="company">TechNova AI</p>
+
+<p class="details">Remote • Summer 2024 • $30 - $45 / hr</p>
+
+<div class="skills">
+<p>Matching Skills</p>
+<span>Python</span>
+<span>Scikit-learn</span>
+<span>SQL</span>
+</div>
+
+<div class="missing">
+<p>Missing Skills</p>
+<span>TensorFlow</span>
+</div>
+
+<button class="apply">Apply Now</button>
+
+</div>
+
+
+<!-- CARD 2 -->
+<div class="card">
+
+<div class="card-header">
+<h3>Data Science Intern</h3>
+<span class="match green">85% Match</span>
+</div>
+
+<p class="company">Quant Analytics</p>
+
+<p class="details">New York, NY (Hybrid) • Fall 2024 • $4000 / mo</p>
+
+<div class="skills">
+<p>Matching Skills</p>
+<span>Python</span>
+<span>Pandas</span>
+<span>SQL</span>
+</div>
+
+<div class="missing">
+<p>Missing Skills</p>
+<span>Tableau</span>
+</div>
+
+<button class="apply">Apply Now</button>
+
+</div>
+
+
+<!-- CARD 3 -->
+<div class="card">
+
+<div class="card-header">
+<h3>Full Stack Developer Intern</h3>
+<span class="match">78% Match</span>
+</div>
+
+<p class="company">WebSphere Inc.</p>
+
+<p class="details">San Francisco • Summer 2024 • $35 / hr</p>
+
+<div class="skills">
+<p>Matching Skills</p>
+<span>React</span>
+<span>HTML/CSS</span>
+<span>JavaScript</span>
+</div>
+
+<div class="missing">
+<p>Missing Skills</p>
+<span>Node.js</span>
+<span>Express</span>
+</div>
+
+<button class="apply">Apply Now</button>
+
+</div>
+
+
+<!-- CARD 4 -->
+<div class="card">
+
+<div class="card-header">
+<h3>Frontend Developer Intern</h3>
+<span class="match">95% Match</span>
+</div>
+
+<p class="company">DesignUI Startup</p>
+
+<p class="details">Remote • Immediate • Unpaid</p>
+
+<div class="skills">
+<p>Matching Skills</p>
+<span>React</span>
+<span>HTML/CSS</span>
+<span>JavaScript</span>
+</div>
+
+<button class="apply">Apply Now</button>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+<script src="internships.js"></script>
+
+</body>
+</html>
